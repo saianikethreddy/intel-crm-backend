@@ -1,5 +1,6 @@
 const  express = require('express')
 const Dbconnect = require("./db");
+const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const dotenv = require('dotenv');
 const authRoute = require('./routes/authroute');
@@ -12,6 +13,13 @@ const port = process.env.PORT || 5006
 dotenv.config()
 app.use(express.json());
 app.use(cookieparser());
+app.use(cors());
+
+app.use(cors({
+    origin: 'http://localhost:3000', // your frontend domain
+    credentials: true               // allow cookies & tokens
+}));
+
 
 
 
