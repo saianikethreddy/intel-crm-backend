@@ -13,7 +13,9 @@ app.use(express.json());
 app.use(cookieparser());
 
 
-
+app.use("/",(req,res)=>{
+    res.send("please contact admin for API Access")
+})
 app.use("/auth",authRoute);
 app.use('/user',userRoute);
 app.use("/post",postroute);
